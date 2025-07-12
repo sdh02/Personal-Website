@@ -58,7 +58,7 @@ body {
 }
 
 .welcome-mat {
-  background-image: url("Photos/Welcome_photo.jpg");
+  background-image: url("Photos/Welcome_photo.jpg") !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
