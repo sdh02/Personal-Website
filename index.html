@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Samuel Huang | Portfolio</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="lock-scroll">
+
+  <!-- Welcome Mat Overlay -->
+  <div class="welcome-mat" id="welcomeMat" aria-label="Welcome Overlay">
+    <h1 id="displayWelcome" class="display-welcome"></h1>
+    <span class="scroll-arrow">&#x2193;</span>
+    <button class="btn btn-outline-light mt-3" onclick="showBio()" aria-label="Enter Bio">
+      Click to learn more about me.
+    </button>
+  </div>
+
+  <!-- SVG Clip Path for Bio Image -->
+  <svg width="0" height="0">
+    <defs>
+      <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
+        <path d="M1,0 C0.85,0.5 0.85,0.5 1,1 L0,1 L0,0 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Bio Section -->
+  <div class="bio-mat bio-hidden" id="bioMat" aria-label="Bio Section">
+    <div class="left-side">
+      <img src="Photos/Pointing_Photo.JPG" alt="Photo of Samuel Huang">
+    </div>
+    <div class="right-side">
+      <div class="bio-box mt-4">
+        <div class="header-line">
+          <h1 id="displayGreeting" class="display-greeting"></h1>
+        </div>
+        <div class="bio-paragraph">
+          I'm a 22-year-old Computer Engineering student at Texas A&M University with a strong passion for coding,
+          microelectronics, and integrated circuit design. Originally from Arizona, my journey through engineering was
+          shaped by a pivotal shift from pursuing military service to embracing engineering after being diagnosed with
+          type 1 diabetes. This experience fueled my resilience and deepened my commitment to innovation.
+        </div>
+        <div class="bio-paragraph">
+          In my free time, I enjoy hiking and rock climbing—activities that challenge me both physically and mentally,
+          and provide me with space to reflect, reset, and stay grounded outside of my engineering work.
+        </div>
+        <div class="bio-paragraph">
+          I'm currently seeking an engineering position that challenges me intellectually, fosters continual learning,
+          and provides mentorship opportunities. I'm excited to contribute meaningfully to innovative teams while
+          growing into a thoughtful, skilled engineer committed to driving innovation.
+        </div>
+      </div>
+      <button class="btn btn-outline-light mt-3" onclick="startSite()" aria-label="Enter Portfolio">
+        Enter Portfolio
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg custom-navbar sticky-top shadow-sm">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <!-- Brand -->
+      <div class="navbar-brand d-flex flex-column align-items-start">
+        <span class="brand-name">Samuel Huang</span>
+        <span class="brand-subtitle">Technical Portfolio</span>
+        <span class="brand-tagline">Electrical & Computer Engineer</span>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="d-flex justify-content-center flex-grow-1">
+        <div class="navbar-nav">
+          <a class="nav-link px-4" href="#bio" onclick="showBio()">Bio</a>
+          <a class="nav-link px-4" href="#projects">Projects</a>
+          <a class="nav-link px-4" href="#skills">Skills</a>
+          <a class="nav-link px-4" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-1">
+    <div class="container project-wrapper">
+      <div class="text-center mb-4">
+        <hr class="w-75 mx-auto" />
+        <h2 class="section-heading">Projects</h2>
+        <hr class="w-75 mx-auto" />
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 d-flex" onclick="showMat('CyclotronProject')">
+          <a href="#project-cyclotron-details" class="project-card-link flex-fill text-decoration-none">
+            <div class="project-card h-100">
+              <div class="project-image-wrapper">
+                <img src="Photos/Cyclotron_image.JPG" alt="Cyclotron Project" class="project-image">
+              </div>
+              <div class="project-content">
+                <h5 class="title">Cyclotron Project</h5>
+                <p class="project-description">
+                  A microcontroller-based system that tracks and controls a magnetic ball's speed around a loop.
+                </p>
+                <span class="info-hint">Click for more info →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 d-flex" onclick="showMat('BrainControlInterface')">
+          <a href="#project-cbi-details" class="project-card-link flex-fill text-decoration-none">
+            <div class="project-card h-100">
+              <div class="project-image-wrapper">
+                <img src="Photos/BCI_pong_game.png" alt="Brain Computer Interface Project" class="project-image">
+              </div>
+              <div class="project-content">
+                <h5 class="title">Brain Computer Interface</h5>
+                <p class="project-description">
+                  An open-source interface that transforms EEG signals into computer commands.
+                </p>
+                <span class="info-hint">Click for more info →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 d-flex"  onclick="showMat('POSSystem')">
+          <a href="#project-pos-details" class="project-card-link flex-fill text-decoration-none">
+            <div class="project-card h-100">
+              <div class="project-image-wrapper">
+                <img src="Photos/POS.png" alt="POS System Project" class="project-image">
+              </div>
+              <div class="project-content">
+                <h5 class="title">Restaurant POS System</h5>
+                <p class="project-description">
+                  A Point-of-Sale system developed for Rev’s Grill at Texas A&M University.
+                </p>
+                <span class="info-hint">Click for more info →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 d-flex" onclick="showMat('linuxFPGA')">
+          <a href="#project-pos-details" class="project-card-link flex-fill text-decoration-none">
+            <div class="project-card h-100">
+              <div class="project-image-wrapper">
+                <img src="Linux_FPGA/ZYBO Z7.png" alt="Implementing a Linux Kernel on FPGA" class="project-image">
+              </div>
+              <div class="project-content">
+                <h5 class="title">Implementing a Linux Kernel on FPGA</h5>
+                <p class="project-description">
+                 Creating a custom Linux kernel for an FPGA board, enabling hardware-software integration.
+                </p>
+                <span class="info-hint">Click for more info →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 d-flex"  onclick="showMat('eightBitAdder')">
+          <a href="#project-pos-details" class="project-card-link flex-fill text-decoration-none">
+            <div class="project-card h-100">
+              <div class="project-image-wrapper">
+                <img src="ECEN 454/Lab8/Layout8bitadder.png" alt="Transistor level 8-bit Adder" class="project-image">
+              </div>
+              <div class="project-content">
+                <h5 class="title">Transistor level 8-bit Adder</h5>
+                <p class="project-description">
+                  Designing an 8-bit adder at the transistor level using Cadence Virtuoso, focusing on layout, simulation, and optimization.
+                </p>
+                <span class="info-hint">Click for more info →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 d-flex" onclick="showMat('ADCOscilliscope')">
+          <a href="#project-pos-details" class="project-card-link flex-fill text-decoration-none">
+            <div class="project-card h-100">
+              <div class="project-image-wrapper">
+                <img src="ADC__Digital/Circuit_diagram_adc_digital_converter.png" alt="Oscilliscope using microcontroller and ADC" class="project-image">
+              </div>
+              <div class="project-content">
+                <h5 class="title">Oscilliscope using microcontroller and ADC</h5>
+                <p class="project-description">
+                  A digital oscilloscope built with a microcontroller and an ADC using SPI communication protocals, capable of detecting frequency, amplitude and type of signal. 
+                </p>
+                <span class="info-hint">Click for more info →</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <div id = "skills" class="container pt-5 mb-5 skills-wrapper">
+    <div class="container">
+      <h2 class="text-center mb-4 section-heading">Skills</h2>
+      <div class="row justify-content-center g-3">
+        <!-- Skill Item -->
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/c-plus-plus-14367.png" alt="C Programming" class="skill-icon" />
+            <p class="skill-label">Embedded Programming (C/C++)</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-python-50.png" alt="Python" class="skill-icon" />
+            <p class="skill-label">Python</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-logic-gate-32.png" alt="Verilog" class="skill-icon" />
+            <p class="skill-label">Verilog</p>
+          </div>
+        </div>
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-computer-50.png" alt="Cadence Virtuoso" class="skill-icon" />
+            <p class="skill-label">Cadence Virtuoso</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-agile-48.png" alt="Agile" class="skill-icon" />
+            <p class="skill-label">Agile Workflow</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-circuit-50.png" alt="Spice" class="skill-icon" />
+            <p class="skill-label">SPICE circuit Simulation</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-integrated-circuit-50.png" alt="Circuit Design" class="skill-icon" />
+            <p class="skill-label">Analog and Digital Circuit Design</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/system-configuration_12513755.png" alt="Control Systems" class="skill-icon" />
+            <p class="skill-label">Control Systems</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-prototyping-50.png" alt="Hands-On Rapid Prototyping" class="skill-icon" />
+            <p class="skill-label">Hands-On Rapid Prototyping</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-arduino-uno-board-50.png" alt="Microcontroller Systems Development" class="skill-icon" />
+            <p class="skill-label">Microcontroller Systems Development</p>
+          </div>
+        </div>
+
+        <div class="col-4 col-sm-3 col-md-2">
+          <div class="skill-card text-center">
+            <img src="Icons/icons8-oscilloscope-32.png" alt="Oscilliscope, Multimeter, Soldering experience" class="skill-icon" />
+            <p class="skill-label">Electrical Test Equipment Proficiency</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </section>
+
+<footer style="background-color: #39647e; color: white; padding: 2rem 1rem; text-align: center;">
+  <div id = "contact" style="max-width: 800px; margin: auto;">
+    <h5 style="margin-bottom: 1rem;">Get in Touch</h5>
+    <p>Email: <a href="mailto:sdhuang02@gmail.com" style="color: #00ffff;">sdhuang02@gmail.com</a></p>
+    <p>LinkedIn: <a href="www.linkedin.com/in/sdh02" target="_blank" style="color: #00ffff;">linkedin.com/in/sdh02</a></p>
+    <p>Location: Phoenix, AZ</p>
+    <hr style="margin: 1.5rem 0; border-color: #333;">
+    <p style="font-size: 0.85rem; color: #aaa;">&copy; 2025 Samuel Huang. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Project Details Modals -->
+
+<div id="CyclotronProject" class="info-mat-overlay d-none">
+  <div class="info-mat d-grid">
+    <!-- Left Side -->
+     <div class="mat-carousel">
+        <div id="carouselPhotos" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active">
+              <img src="Photos/Cyclotron_image.JPG" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/cyclotron_circuit_diagram.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/cyclotron_front_back.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sliding Pages -->
+    <div class="mat-content">
+        <div class="slide-wrapper" id="slideWrapper">
+          <div class="slide-page active">
+            <h4 class="title">Overview</h4>
+            <p>The project redesigns a classic small-scale electromagnetic accelerator that speeds up a magnetic ball around a track. Serving as a visual demonstration of Faraday's law of Electromagnetic induction, the prototype effectively delivers power to maximize work. It incorporates powering copper coils into a microelectronic system controlled by software algorithms to control the speed of an accelerating ball.</p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Role & Challenges</h4>
+            <p>I served as the lead hardware designer, responsible for creating the electrical design, sourcing the necessary components, and assembling the final prototype. Key challenges included physical wear that compromised the continuous motion of the ball, power switching between the coils, and integrating the microcontroller into the system.</p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Technologies & Skills</h4>
+            <p>The project utilizes Python for controlling the input signals from the different sensors in the system, and for sending the output signals for power switching. The hardware required soldering to create the final electrical system. The overall project required teamwork and adaptability to navigate different component sourcing complications and physical limitations.</p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Outcome</h4>
+            <p>The project's result enabled successful control of the ball around the track. Power and physical constraints limited the system's ability to control the exact speed. The project highlighted the complicated process of going from calculations and design to a fully implemented prototype.</p>
+            <a href="https://drive.google.com/drive/folders/1sxbfH1z8bJBuXkYaBDtbiRXjVdlyE7e7?usp=sharing" target="_blank" class="link">Click here for documentation, and demo video.</a>
+          </div>
+        </div>
+        <div class="arrow-button" onclick="changeSlide(CyclotronProject)">&#8594;</div>
+    </div>
+    
+
+  </div>
+</div>
+
+<div id="BrainControlInterface" class="info-mat-overlay d-none">
+  <div class="info-mat d-grid">
+    <!-- Left Side -->
+     <div class="mat-carousel">
+        <div id="carouselPhotos" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active">
+              <img src="Photos/BCI_circuit_diagram.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/BCI_demo.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/BCI_EEG_visualize.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sliding Pages -->
+    <div class="mat-content">
+        <div class="slide-wrapper" id="slideWrapper">
+          <div class="slide-page active">
+            <h4 class="title">Overview</h4>
+            <p>
+              The project aims to expand accessibility in the realm of control by providing a proof-of-concept prototype for an open-source custom brain control interface. Over the course of a semester, this senior-level design project developed a homemade EEG reader to detect and filter brainwaves, along with accompanying filtering software that enabled users to play a Pong game. </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Role & Challenges</h4>
+            <p>I
+               served as the lead hardware designer, responsible for creating the custom analog filter, simulating it, and verifying its functionality in the lab. Additionally, I assembled the final hardware system and soldered its distinct components. Key challenges in this project were limited documentation for establishing the EEG reader and bridging the gap between non-ideal components and expected functionality to create a reliable system.</p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Technologies & Skills</h4>
+            <p>
+              The project relied on circuit theory and design principles to create the necessary filtering circuit. With SPICE simulation software, designs were validated and optimized. Using electrical lab equipment such as oscilloscopes, multimeters, and soldering kits, the prototype was extensively debugged, tested for functionality, and assembled.</p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Outcome</h4>
+            <p>
+              The project provided proof of concept that our system could create control functions using our brain waves. By monitoring attention levels, the system allowed the user to play a Pong game. Working under an agile workflow, our team applied what we learned between each iteration to adapt and overcome the continually emerging engineering challenges.</p>
+            <a href="https://www.youtube.com/watch?v=h0dd6Qs1zyk" target="_blank" class="link">Click here for demo and project overview video.</a>
+            <a href="https://github.com/Citrous17/brain-controlled-drone" target="_blank" class="link">Click here GitHub link.</a>
+          </div>
+        </div>
+        <div class="arrow-button" onclick="changeSlide(BrainControlInterface)">&#8594;</div>
+    </div>
+    
+
+  </div>
+</div>
+
+<div id="POSSystem" class="info-mat-overlay d-none">
+  <div class="info-mat d-grid">
+    <!-- Left Side -->
+     <div class="mat-carousel">
+        <div id="carouselPhotos" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active">
+              <img src="Photos/POS_manager_code_snippet.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/POS_activity.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/POS_folder_overview.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sliding Pages -->
+    <div class="mat-content">
+        <div class="slide-wrapper" id="slideWrapper">
+          <div class="slide-page active">
+            <h4 class="title">Overview</h4>
+          <p>
+            The project aims to create a seamless point-of-sale system capable of supporting multiple user profiles. Connecting a food supply and employee database, the system provides managers with a wide array of analytical tools, streamlining workflow and enhancing the customer experience. 
+          </p> 
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Role & Challenges</h4>
+           <p>
+            I served as a full-stack developer, responsible for creating the manager profile user interface along with its analytical functions. Key challenges in this project included setting up the database to support the system, understanding the syntax in Node.js, and using React to create an effective manager interface, as well as balancing the uneven workload within the team.
+           </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Technologies & Skills</h4>
+            <p>
+              The project relied on Python for connecting to the database and automating SQL queries, as well as Java and HTML to create the user interface, and SQL to pull data and build analytics. The project utilized a React platform to make the whole system. It taught us how to work under an agile workflow and handle communication problems within our team. It also highlighted the importance of user-oriented design.
+            </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Outcome</h4>
+           <p>
+            The project entirely created a functional Point of Sale system. Going into the project, we didn't conduct enough research on the platform and the various tools that React offered, leading to a significant learning curve during the project. This experience ultimately taught me how to research new technologies and software and why it's so important during the planning phase.
+           </p>
+            <a href="https://drive.google.com/drive/folders/1h5rBgRNtBk5m4ltq1VQC1t-5woHoXAQV?usp=sharing" target="_blank" class="link">Click here for report and project overview video.</a>
+            <a href="https://github.com/csce-315-331-2024a/project-3-full-stack-agile-web-team-tony-hawk-web-app" target="_blank" class="link">Click here GitHub link.</a>
+          </div>
+        </div>
+        <div class="arrow-button" onclick="changeSlide(POSSystem)">&#8594;</div>
+    </div>
+    
+
+  </div>
+</div>
+
+<div id="linuxFPGA" class="info-mat-overlay d-none">
+  <div class="info-mat d-grid">
+    <!-- Left Side -->
+     <div class="mat-carousel">
+        <div id="carouselPhotos" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active">
+              <img src="Photos/linux_c_code_snippet.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/linux_multiplication_peripheral.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/linux_verilog_code_snippet.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sliding Pages -->
+    <div class="mat-content">
+        <div class="slide-wrapper" id="slideWrapper">
+          <div class="slide-page active">
+            <h4 class="title">Overview</h4>
+          <p>
+           The project aims to create a multiplier peripheral at the gate level and develop a driver capable of communicating with a Linux kernel on an FPGA to implement the multiplication function at the hardware level. 
+          </p> 
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Role & Challenges</h4>
+           <p>
+            I created the hardware peripheral, driver, and implemented the Linux kernel onto the FPGA. The biggest challenge was the time it took to make the Linux kernel and upload it to the FPGA. Any error would result in having to start the process over from the beginning.
+           </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Technologies & Skills</h4>
+            <p>
+              The project relied on Verilog to create the hardware peripheral, along with the test benches to verify its functionality. Using an FPGA-based microprocessor, the multiplication peripheral, along with the Linux kernel, is implemented. The C language is then used to communicate between the kernel and peripherals, allowing for the multiplication functionality at the gate level. 
+            </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Outcome</h4>
+           <p>
+            The project demonstrated a joint software and hardware approach. This basic demonstration illustrated the process of creating gate-level peripherals and how a microprocessor system can access them using embedded languages such as C, thereby reducing the amount of work done by the CPU. 
+           </p>
+            <a href="https://drive.google.com/drive/folders/1Jfwpv2V0tqqVVdY7wQkfDDYY1_vtT5iS?usp=drive_link" target="_blank" class="link">Click here for reports .</a>
+          </div>
+        </div>
+        <div class="arrow-button" onclick="changeSlide(linuxFPGA)">&#8594;</div>
+    </div>
+    
+
+  </div>
+</div>
+
+<div id="eightBitAdder" class="info-mat-overlay d-none">
+  <div class="info-mat d-grid">
+    <!-- Left Side -->
+     <div class="mat-carousel">
+        <div id="carouselPhotos" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active">
+              <img src="Photos/Layout8bitadder.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/calc.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/Symbol_simulation.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sliding Pages -->
+    <div class="mat-content">
+        <div class="slide-wrapper" id="slideWrapper">
+          <div class="slide-page active">
+            <h4 class="title">Overview</h4>
+          <p>
+           The project aims to create an 8-bit adder at the transistor level and create the material layout. The project also aims to optimize timing and power consumption by managing size and distribution. 
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Role & Challenges</h4>
+           <p>
+            I created each layout, gate schematic, and symbol for each component within the 8-bit adder. I also sized each logic gate and performed timing analysis and power consumption checks for each element. The most challenging part was getting accustomed to the software tools and having the patience to test and analyze each component and stage thoroughly. 
+            </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Technologies & Skills</h4>
+            <p>
+              The project relied on a digital circuit design utilizing Cadence Virtuoso to create and simulate the schematics. Optimization techniques, including timing analysis and power consumption checks, guided the sizing and distribution of the layouts.
+            </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Outcome</h4>
+           <p>
+            The project created a thoroughly tested and optimized 8-bit adder. It shows the process from creating each gate at the transistor level to a consecutively larger component, illustrating the process of Very Large Scale Integration at a smaller scale.
+           </p>
+            <a href="https://drive.google.com/drive/folders/1z3bY6BYiGfNbAcIMLYwIf4t0tc8B4hZu?usp=sharing" target="_blank" class="link">Click here for reports .</a>
+          </div>
+        </div>
+        <div class="arrow-button" onclick="changeSlide(eightBitAdder)">&#8594;</div>
+    </div>
+    
+
+  </div>
+</div>
+
+<div id="ADCOscilliscope" class="info-mat-overlay d-none">
+  <div class="info-mat d-grid">
+    <!-- Left Side -->
+     <div class="mat-carousel">
+        <div id="carouselPhotos" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active">
+              <img src="Photos/ADC.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 1">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/ADC_circuitry.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 2">
+            </div>
+            <div class="carousel-item ">
+              <img src="Photos/ADC_py.png" class="d-block w-100 h-100 object-fit-cover" alt="Slide 3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sliding Pages -->
+    <div class="mat-content">
+        <div class="slide-wrapper" id="slideWrapper">
+          <div class="slide-page active">
+            <h4 class="title">Overview</h4>
+          <p>
+           The project aims to interface microcontrollers with A/D converters using an ADC chip to analyze analog signals and characterize the result. 
+          </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Role & Challenges</h4>
+           <p>
+            I helped interface the microcontroller with the ADC chip using a Serial Peripheral Interface communication bus. Additionally, I assisted in developing a method for characterizing the output by utilizing threshold values to identify the wave type. The challenge with this project was calibrating the code to match the actual input more closely, along with characterizing the input wave.
+            </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Technologies & Skills</h4>
+            <p>
+              The project utilized Python to create the connection between the microcontroller and ADC. The project used the SPI communication protocol to synchronize communication between the ADC and microcontroller, enabling the collection and characterization of data.
+            </p>
+          </div>
+          <div class="slide-page">
+            <h4 class="title">Outcome</h4>
+           <p>
+            The resulting project successfully detected the amplitude, frequency, and wave type of an input wave.
+            </p>
+            <a href="https://drive.google.com/drive/folders/1J3zveugM7NRRZVnzwCLzK6UaekABpr7b?usp=sharing" target="_blank" class="link">Click here for reports and code.</a>
+          </div>
+        </div>
+        <div class="arrow-button" onclick="changeSlide(ADCOscilliscope)">&#8594;</div>
+    </div>
+    
+
+  </div>
+</div>
+
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
